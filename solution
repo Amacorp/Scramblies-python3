@@ -1,0 +1,19 @@
+def scramble(s1,s2):
+    for letter in set(s2):
+        if s1.count(letter) < s2.count(letter):
+            return False
+    return True
+print(scramble('scriptjava', 'javascript'))
+
+
+OR
+
+def scramble(s1,s2):
+    result = True
+    for character in s2:
+        if character not in s1:     
+            return False
+        i = s1.index(character)
+        s1 = s1[0:i] + s1[i+1:]
+    return result
+print(scramble('scriptjava', 'javascript'))
